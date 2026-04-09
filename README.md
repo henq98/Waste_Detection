@@ -4,17 +4,17 @@ Waste Detection in the Built Environment
 Overview
 This project implements a waste detection pipeline for street-view images using transfer learning.
 Our final reported workflow used a single-model ResNet-50 setup with a labeled folder-based dataset
-split into train, val, and test. The main pipeline is in waste_detection_resnet50_v2.py. :contentReference[oaicite:0]{index=0}
+split into train, val, and test. The main pipeline is in waste_detection_resnet50_v2.py.
 
 Dataset structure
 dataset/
-├── train/
+├── train/    <- (2016-2019)
 │   ├── waste/
 │   └── no_waste/
-├── val/
+├── val/      <- (2020-2021)
 │   ├── waste/
 │   └── no_waste/
-└── test/
+└── test/     <- (2022-2023)
     ├── waste/
     └── no_waste/
 
@@ -27,10 +27,6 @@ Environment
 - pillow
 - scikit-learn
 
-Optional for YOLO localization:
-- ultralytics
-- opencv-python
-
 Hardware used
 - NVIDIA RTX 1000 Ada Generation GPU
 - CUDA 12.8
@@ -41,7 +37,6 @@ pip install ultralytics opencv-python
 
 Main settings
 - Backbone: ResNet-50
-- Image size: 320
 - Batch size: 256
 - WeightedRandomSampler enabled
 - Two-phase training:
@@ -64,14 +59,15 @@ Main outputs
 Final workflow used
 Our final submission used a single-model test-only workflow.
 Images in dataset/test were ranked by predicted waste confidence, and the Top 100 highest-confidence
-images were selected as the final result set.
+images were selected as the final result set. This was logically done only on the test set.
 
 Submission contents
 The final submission archive should contain:
 - Report
-- Source code
+- Source code (to be reached through link GitHub in report)
 - README / ReadMe.txt
 - Top 100 waste detections as images
+- A CSV file containing some extra information
 
 According to the project brief, the required results file is the Top 100 detections as images. :contentReference[oaicite:2]{index=2}
 
@@ -84,9 +80,8 @@ Optional helper files
 - ensemble.py
 
 Group
-Group: [XX]
+Group: [09]
 Members:
-- [Name 1]
-- [Name 2]
-- [Name 3]
-- [Name 4]
+- Henryk
+- Adriano
+- Mathijs
